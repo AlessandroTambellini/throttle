@@ -29,8 +29,9 @@ document.addEventListener("keypress", () => throttledConsole(currentTime));
 // currentTime = 1000ms, user stops typing
 // currentTime = 2000ms, user start again typing
 // currentTime = 3000ms, function fires with the most recent parameters
-// currentTime = 5000ms, user stops typing
-// currentTime = 8000ms, function fires for the last time.
+// currentTime = 6000ms, function fires
+// currentTime = 7300ms, user stops typing
+// currentTime = 9000ms, function fires for the last time
 ```
 
 The only caveat is to not use a delay greater than the time elapsed from 1/1/1970 :wink:
