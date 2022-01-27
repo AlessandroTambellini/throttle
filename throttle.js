@@ -1,7 +1,7 @@
 function throttle(callback, delay) {
   let timerID;
   let lastCalledTime = 0;
-  
+
   function throttledFunction(...args) {
     const currentTime = Date.now();
     const timeSinceLastCall = currentTime - lastCalledTime;
@@ -19,9 +19,20 @@ function throttle(callback, delay) {
     }
   }
 
-  throttledFunction.cancel = function() {
+  throttledFunction.cancel = function () {
     clearTimeout(timerID);
-  }
+  };
 
   return throttledFunction;
 }
+
+// This is an example to show the utility of the method call() inside throttledFunction
+const object = {
+  name: "Alessandro Tambellini",
+  callback() {
+    console.log(this.name);
+  },
+};
+
+object.throttled = throttle(object.callback, 1000);
+object.throttled();
